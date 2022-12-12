@@ -205,10 +205,6 @@ export class Billboard extends gfx.Transform3
         // using the direction vector of the pick ray.
         const offset = new gfx.Vector3();
 
-        const cameraOnGround = new gfx.Vector3(camera.position.x, 0, camera.position.z);
-        this.lookAt(cameraOnGround);
-        const rotationInverse = this.rotation.inverse();
-
         const point = new gfx.Vector2(this.vertices[0].x, this.vertices[0].y);
         const ray = new gfx.Ray();
 
@@ -228,7 +224,6 @@ export class Billboard extends gfx.Transform3
                 this.vertices[i].copy(intersection);
                 this.vertices[i].subtract(this.position);
                 this.vertices[i].subtract(offset);
-                this.vertices[i].rotate(rotationInverse);
             }
         }
 
