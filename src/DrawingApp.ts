@@ -165,10 +165,10 @@ export class DrawingApp extends gfx.GfxApp
                 const intersection = ray.intersectsMesh(this.ground);
                 if(intersection){
                     const currentCameraPos = this.camera.position.distanceTo(intersection);
-                    if(currentCameraPos < 2){ // hills
+                    if(currentCameraPos < this.cameraHeight){ // hills
                         this.camera.position.y += 2-currentCameraPos;
                     }
-                    else if(currentCameraPos > 2){ // valleys
+                    else if(currentCameraPos > this.cameraHeight){ // valleys
                         this.camera.position.y -= currentCameraPos-2;
                     }
                 }
